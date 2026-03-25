@@ -40,7 +40,7 @@ resource "aws_instance" "demo" {
   tags = {
     Name = "zony-testserver01"
   }
-  key_name               = "zonykeypair"
+  key_name               = "zonykeyterraform02"
   vpc_security_group_ids = [aws_security_group.ssh.id]
 }
 
