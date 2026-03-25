@@ -1,0 +1,19 @@
+git init
+git add .
+git commit -m "Initialer Commit"
+git remote add origin git@github.com:ZonyST/terraform-start.git
+git push -u origin main
+git push -u origin master
+git branch
+git add --all
+git commit -m update
+git push
+git pull
+git remote show origin
+git checkout main
+git checkout -b newbranch
+git checkout -b feature/0001-entwicklung
+git merge
+git config --global user.name "John Doe"
+git config --global user.email johndoe@example.com
+git clone git@github.com:ZonyST/zonyterraform02.git
