@@ -34,6 +34,11 @@ resource "aws_security_group" "ssh" {
   }
 }
 
+resource "aws_key_pair" "deployer" {
+  key_name   = "zonykeyterraform02"
+  public_key = "zonykeyterraform02"
+}
+
 resource "aws_instance" "demo" {
   ami           = "ami-0b6c6ebed2801a5cb" #ubuntu
   instance_type = "t2.micro"
