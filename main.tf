@@ -36,7 +36,7 @@ resource "aws_security_group" "ssh" {
 
 resource "aws_key_pair" "deployer" {
   key_name   = "zonykeyterraform02"
-  public_key = "zonykeyterraform02"
+  public_key = "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAACAQCaH1iEB3hBw47HDxGn0j7kefc8cTFeg8/I1Yp8mcpbP2/Idvm1hT4GLv0umwKHFdqcSqEMvQ4Z+eNHZZlhdOkn7YIxFpRRgHhsWHOpAv4giS+krcaECTBFih1XQRjAX09IAfQzebhuYF15xCOvHLaQ5ftlWLV6bjtYHd+wyNK3uQL9qFYhb+1pJzNQE3xuNqDsrB2FUK//e/vAEVvSWEzjPSiMAcNK/O3nuLApRPUcvE4M+EfwRmsSXkFCtGc2v82X/NWz5hUKw/9n9PJA4S9uHfqsXDC5rZxm1LqtajBYX2bvIBQAoer//m8Y2J10EuO6U7uRSkjtKOT7yyuMIspPy+2JVG2TT/2sHEG3LF2wlXnL6jMGgJosRKJdGIvRE4A6JXqAKXSAWamGnIBvrdsXkE2wXzasy6SAJK/cGujMgJHMDJZbUVTE3louN+pjM4JKgxC/Dm0vkFVWsrRTdwu2LQiPdGIaxIThiYUWyWXqYkDPcm8iV7Z7MVAPECxtuxMHBMmbwA0VL+8aqqqVI5XJ9F8vGX8BtoLGC3ZZLqJoekgJ/+PyjMVaxzKLEpL++xn4k/m/sSfpHEST3BZDT73NPa8BNoc6gdzyYKIQbdW/ebRHTWcs6CQMstgI103eF7xGEzeI62r4nsVmC5R2v5bvMlnzYs3jt1sptsqlGSZujw== st@Ubuntu01"
 }
 
 resource "aws_instance" "demo" {
@@ -45,7 +45,7 @@ resource "aws_instance" "demo" {
   tags = {
     Name = "zony-testserver01"
   }
-  key_name               = "zonykeyterraform02"
+  key_name               = aws_key_pair.deployer.key_name
   vpc_security_group_ids = [aws_security_group.ssh.id]
 }
 
