@@ -1,0 +1,3 @@
+chmod 400 zonykeypair.pem
+ssh -i zonykeypair.pem 
+ssh user@ip
