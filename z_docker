@@ -1,5 +1,5 @@
 docker build -t name ./
-docker run -p 3000:3000
+docker run -p 3000:3000 name
 docker login -u username
 docker tag quiz-app tomteaching/quizz-app-web:latest
 docker push tomteaching/quizz-app-web:latest
