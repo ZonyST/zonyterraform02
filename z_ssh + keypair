@@ -1,4 +1,4 @@
 chmod 400 zonykeypair.pem
 ssh -i zonykeypair.pem 
 ssh user@ip
-ssh-keygen -t rsa -b 4096 -C github
+ssh-keygen -t rsa -b 4096 -C name

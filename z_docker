@@ -1,6 +1,37 @@
-docker build -t name ./
-docker run -p 3000:3000 name
-docker login -u username
-docker tag quiz-app tomteaching/quizz-app-web:latest
-docker push tomteaching/quizz-app-web:latest
-docker pull tomteaching/quizz-app-web:latest
+sudo oder sudo -s
+
+sudo docker login -u zony370
+
+sudo docker build -t zony370/docker01 ./
+sudo docker run -d --name test -p 3010:3000 zony370/docker01
+sudo docker tag zony370/docker01 zony370/docker01:latest
+sudo docker push zony370/docker01:latest
+sudo docker pull zony370/docker01:latest
+
+docker ps
+docker images
+docker inspect name
+docker stop <container_name_or_id>
+docker stop $(docker ps -q)
+docker stats
+docker system prune -af
+
+docker run -d -v $(pwd):/usr/share/nginx/html -p 8080:80 nginx:alpine
+
+docker volume create name
+docker volume ls
+docker volume inspect name
+docker volume rm name
+docker run -it -v name:/data alpine sh
+
+docker network ls
+
+docker exec -it name
+
+docker network create appnet
+
+docker run -d --name db --network appnet -e MYSQL_ROOT_PASSWORD=pass mysql:8 
+docker run -d --name adminer --network appnet -p 8080:8080 adminer
+
+
+docker compose up -d
