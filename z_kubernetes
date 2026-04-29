@@ -1,0 +1,20 @@
+k3d cluster create quiz --port "8080:80"
+k3d image import quiz-app:local -c quiz
+k3d cluster delete quiz
+k3d cluster stop
+k3d cluster start
+
+kubectl get nodes
+kubectl get pods
+kubectl get pods --all-namespaces
+kubectl get pods -A
+kubectl get pods -A -o wide
+kubectl get services
+kubectl get services -n quiz
+kubectl get deployment -n quiz
+kubectl get ingress -n quiz
+kubectl get config
+kubectl get namespaces
+kubectl config use-context <>
+kubectl apply -f k3d/namespace.yml
+kubectl -n quiz scale deployment/quiz-app --replicas=0

@@ -3,6 +3,7 @@ sudo oder sudo -s
 sudo docker login -u zony370
 
 sudo docker build -t zony370/docker01 ./
+docker build -f services/web/Dockerfile -t quiz-web:local .
 sudo docker run -d --name test -p 3010:3000 zony370/docker01
 sudo docker tag zony370/docker01 zony370/docker01:latest
 sudo docker push zony370/docker01:latest
